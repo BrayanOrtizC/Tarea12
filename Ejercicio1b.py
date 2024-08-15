@@ -25,7 +25,7 @@ def ODE_euler(
     return ys, ts, h
 
 f = lambda t, y: 1 + (t - y)**2
-y_t0 = 0
+y_t0 = 1
 
 a = 2
 b = 3
