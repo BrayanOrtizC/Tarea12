@@ -30,14 +30,14 @@ y_t0 = 2
 a = 1
 b = 2
 
-ys,ts, h = ODE_euler(a=a, b=b, y_t0=y_t0, f=f, N=2)
+ys,ts, h = ODE_euler(a=a, b=b, y_t0=y_t0, f=f, N=4)
 print(ys)
 
 
 # Solución real de la ecuación diferencial
 # (No es parte del ejercicio pero la pongo para tener una idea)
 # Parámetros del problema
-h=0.5
+h=0.25
 n = int((b - a) / h) + 1 #numero de pasos
 
 def solucion_real(t):
@@ -59,6 +59,7 @@ print("Error:", error)
 
 
 # Gráfica del error
+#plt.subplot(1, 1, 1)
 plt.plot(ts, error, marker="o", linestyle=":", label="Error absoluto")
 plt.xlabel("Tiempo")
 plt.ylabel("Error")
