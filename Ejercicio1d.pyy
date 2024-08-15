@@ -30,14 +30,14 @@ y_t0 = 0
 a = 0
 b = 1
 
-ys,ts, h = ODE_euler(a=a, b=b, y_t0=y_t0, f=f, N=2)
+ys,ts, h = ODE_euler(a=a, b=b, y_t0=y_t0, f=f, N=4)
 print(ys)
 
 
 # Solución real de la ecuación diferencial
 # (No es parte del ejercicio pero la pongo para tener una idea)
 # Parámetros del problema
-h=0.5
+h=0.25
 n = int((b - a) / h) + 1 #numero de pasos
 
 def solucion_real(t):
