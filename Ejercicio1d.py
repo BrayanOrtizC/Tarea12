@@ -25,7 +25,7 @@ def ODE_euler(
     return ys, ts, h
 
 f = lambda t, y: np.cos(2*t) + np.sin(3*t)
-y_t0 = 0
+y_t0 = 1
 
 a = 0
 b = 1
