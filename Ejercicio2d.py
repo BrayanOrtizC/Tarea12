@@ -11,6 +11,42 @@ def ODE_euler(
     N: int,
 ) -> tuple[list[float], list[float], float]:
     
+    h = (b - a) / N #Se debe ajustar N para que h = 0.1
+    t = a
+    ts = [t]
+    ys = [y_t0]
+
+    for _ in range(N):
+        y = ys[-1]
+        y += h * f(t, y)
+        ys.append(y)
+        t += h
+        ts.append(t)
+    return ys, ts, h
+
+f = lambda t, y: -5*y + 5*t**2 + 2*t
+y_t0 = 1/3
+
+a = 0
+b = 1
+
+ys,ts, h = ODE_euler(a=a, b=b, y_t0=y_t0, f=f, N=10)
+print(ys)
+
+
+from typing import Callable
+import numpy as np
+import matplotlib.pyplot as plt
+
+def ODE_euler(
+    *,
+    a: float,
+    b: float,
+    f: Callable[[float, float], float],
+    y_t0: float,
+    N: int,
+) -> tuple[list[float], list[float], float]:
+    
     h = (b - a) / N #Se debe ajustar N para que h = 0.5
     t = a
     ts = [t]
@@ -25,7 +61,7 @@ def ODE_euler(
     return ys, ts, h
 
 f = lambda t, y: np.cos(2*t) + np.sin(3*t)
-y_t0 = 0
+y_t0 = 1
 
 a = 0
 b = 1
@@ -47,6 +83,7 @@ y_values = np.zeros(n)
 
 # Calculamos la solución real en los puntos t_values
 sol_real = solucion_real(t_values)
+
 
 
 
